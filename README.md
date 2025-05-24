@@ -1,9 +1,9 @@
 # Canvas++
 An SDL inspired framework for making games with the html canvas
 
-### Version v0.1
+### Version v0.2
 Features Include:
-* Random Integer Generation
+* Random Number Generation
 * Keyboard Input Handling
 * Recttangle v Rectangle Collision
 

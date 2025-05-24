@@ -2,18 +2,20 @@
 // Made by Lucas-Code
 // Created on 5/24/2025
 // Updated on 5/24/2025
-// Updated to Canvas++ v0.2 from v0.1
+// Updated to Canvas++ v0.3 from v0.2
 
 // Imported Modules from Canvas++
-import * as random from "/canvas++/modules/random.js"
-import * as physics from "/canvas++/modules/physics.js"
-import * as input from "/canvas++/modules/input.js"
+import * as random from "./canvas++/modules/random.js"
+import * as physics from "./canvas++/modules/physics.js"
+import * as input from "./canvas++/modules/input.js"
+import * as text from "./canvas++/modules/text.js"
+import * as renderer from "./canvas++/modules/rendering.js"
 
 // Init Renderer
-const canvas = document.getElementById("mainCanvas")
-const draw = canvas.getContext("2d")
+renderer.initRenderer("mainCanvas")
 
-const pixelfont = new FontFace("pixel",'url("assets/Micro5-Regular.ttf"') // Load a font
+// Load a font
+text.addfont("pixel","assets/Micro5-Regular.ttf")
 
 // Init Input Handler
 input.initInputSystem()
@@ -49,8 +51,6 @@ var Bx2 = 250
 var By2 = -30
 
 var canloop = true
-
-document.fonts.add(pixelfont)
 
 play()
 
@@ -156,37 +156,32 @@ function main(){
     // Drawing
 
     // Background
-    draw.fillStyle = "#f5f5f5"
-    draw.fillRect(0,0,canvas.width,canvas.height)
+    renderer.clear("#f5f5f5")
 
     if (!dead){
         // Player
-        draw.fillStyle = "blue"
-        draw.fillRect(Px, 520, 60, 40)
+        renderer.fillColor("blue")
+        renderer.drawRect(Px, 520, 60, 40)
 
         // Coins
-        draw.fillStyle = "#FFD700"
-        draw.fillRect(Cx1,Cy1,20,20)
-        draw.fillRect(Cx2,Cy2,20,20)
-        draw.fillRect(Cx3,Cy3,20,20)
+        renderer.fillColor("#FFD700")
+        renderer.drawRect(Cx1,Cy1,20,20)
+        renderer.drawRect(Cx2,Cy2,20,20)
+        renderer.drawRect(Cx3,Cy3,20,20)
 
         // Bombs
-        draw.fillStyle = "red"
-        draw.fillRect(Bx1,By1,20,20)
-        draw.fillRect(Bx2,By2,20,20)
+        renderer.fillColor("red") 
+        renderer.drawRect(Bx1,By1,20,20)
+        renderer.drawRect(Bx2,By2,20,20)
 
         // Score Display
-        draw.fillStyle = '#34eb34'
-        draw.font = "84px pixel"
-        draw.fillText(Score, 10, 50)
+        renderer.fillColor('#34eb34')
+        renderer.drawText("84px pixel",Score, 10, 50)
     } else{
         // Dead Display
-        draw.fillStyle = '#34eb34'
-        draw.font = "84px pixel"
-        draw.fillText("YOU ARE DEAD", 20, 100)
-
-        draw.font = "48px pixel"
-        draw.fillText("PRESS 'R' TO RESTART", 20, 200)
+        renderer.fillColor('#34eb34')
+        renderer.drawText("84px pixel","YOU ARE DEAD", 20, 100)
+        renderer.drawText("48px pixel","PRESS 'R' TO RESTART", 20, 200)
 
         // Check Input
         if(input.keys['r']){

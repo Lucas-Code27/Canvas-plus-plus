@@ -1,7 +1,8 @@
 // COIN CATCHER DEMO
 // Made by Lucas-Code
 // Created on 5/24/2025
-// Made using Canvas++ v0.1
+// Updated on 5/24/2025
+// Updated to Canvas++ v0.2 from v0.1
 
 // Imported Modules from Canvas++
 import * as random from "/canvas++/modules/random.js"
@@ -75,7 +76,7 @@ function main(){
 
     if (Cy1 > 600){
         Cy1 = 0
-        Cx1 = random.randi(380)
+        Cx1 = random.randi(0,380)
         if (Score != 0){
             Score--
         }
@@ -83,7 +84,7 @@ function main(){
     }
     if (Cy2 > 600){
         Cy2 = 0
-        Cx2 = random.randi(380)
+        Cx2 = random.randi(0,380)
         if (Score != 0){
             Score--
         }
@@ -91,7 +92,7 @@ function main(){
     }
     if (Cy3 > 600){
         Cy3 = 0
-        Cx3 = random.randi(380)
+        Cx3 = random.randi(0,380)
         if (Score != 0){
             Score--
         }
@@ -99,11 +100,11 @@ function main(){
     }
     if (By1 > 600){
         By1 = 0
-        Bx1 = random.randi(380)
+        Bx1 = random.randi(0,380)
     }
     if (By2 > 600){
         By2 = 0
-        Bx2 = random.randi(380)
+        Bx2 = random.randi(0,380)
     }
 
     // Inputs
@@ -124,19 +125,19 @@ function main(){
     if (!dead){
         if (physics.rectvrectcollision(Px,520,60,40,Cx1,Cy1,20,20)){
             Cy1 = 0
-            Cx1 = random.randi(380)
+            Cx1 = random.randi(0,380)
             Score++
             coinsound.play()
         }
         if (physics.rectvrectcollision(Px,520,60,40,Cx2,Cy2,20,20)){
             Cy2 = 0
-            Cx2 = random.randi(380)
+            Cx2 = random.randi(0,380)
             Score++
             coinsound.play()
         }
         if (physics.rectvrectcollision(Px,520,60,40,Cx3,Cy3,20,20)){
             Cy3 = 0
-            Cx3 = random.randi(380)
+            Cx3 = random.randi(0,380)
             Score++
             coinsound.play()
         }

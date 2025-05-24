@@ -48,7 +48,7 @@ The arguments go as follows:
 * r2w - Second rectangle's width
 * r2h - Second rectangle's height
 
-# Random Number System
+## Random Number System
 >[!IMPORTANT]
 >The RNG system currently only supports ints from 1 to what ever number you set as the max you will have to make your own for floats as of right now
 

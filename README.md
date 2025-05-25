@@ -6,7 +6,7 @@ Features Include:
 * Random Number Generation
 * Keyboard Input Handling
 * Recttangle v Rectangle Collision
-* Basic Renderer
+* Basic Renderer (uses 2D Context on the html canvas)
 * Custom Font Loader
 
 ### Reporting Issues

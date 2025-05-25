@@ -2,7 +2,7 @@
 // Made by Lucas-Code
 // Created on 5/24/2025
 // Updated on 5/24/2025
-// Updated to Canvas++ v0.3 from v0.2
+// Updated to Canvas++ v1-beta from v0.3
 
 // Imported Modules from Canvas++
 import * as random from "./canvas++/modules/random.js"
@@ -10,6 +10,7 @@ import * as physics from "./canvas++/modules/physics.js"
 import * as input from "./canvas++/modules/input.js"
 import * as text from "./canvas++/modules/text.js"
 import * as renderer from "./canvas++/modules/rendering.js"
+import * as audio from "./canvas++/modules/audio.js"
 
 // Init Renderer
 renderer.initRenderer("mainCanvas")
@@ -21,12 +22,10 @@ text.addfont("pixel","assets/Micro5-Regular.ttf")
 input.initInputSystem()
 
 // Init Sounds
-const coinsound = new Audio("./assets/audio/coin.wav")
-const misssound = new Audio("./assets/audio/miss.wav")
-const deathsound = new Audio("./assets/audio/death.wav")
-const song = new Audio("./assets/audio/song.mp3")
-
-song.loop = true
+audio.addAudio("coin","./assets/audio/coin.wav")
+audio.addAudio("miss","./assets/audio/miss.wav")
+audio.addAudio("death","./assets/audio/death.wav")
+audio.addAudio("song","./assets/audio/song.mp3",true)
 
 // Variables
 const PLAYERSPEED = 5
@@ -56,7 +55,7 @@ play()
 
 function play(){
     canloop = true
-    song.play()
+    audio.playAudio("song")
     main()
 }
 
@@ -80,7 +79,7 @@ function main(){
         if (Score != 0){
             Score--
         }
-        misssound.play()
+        audio.playAudio("miss")
     }
     if (Cy2 > 600){
         Cy2 = 0
@@ -88,7 +87,7 @@ function main(){
         if (Score != 0){
             Score--
         }
-        misssound.play()
+        audio.playAudio("miss")
     }
     if (Cy3 > 600){
         Cy3 = 0
@@ -96,7 +95,7 @@ function main(){
         if (Score != 0){
             Score--
         }
-        misssound.play()
+        audio.playAudio("miss")
     }
     if (By1 > 600){
         By1 = 0
@@ -127,29 +126,29 @@ function main(){
             Cy1 = 0
             Cx1 = random.randi(0,380)
             Score++
-            coinsound.play()
+            audio.playAudio("coin")
         }
         if (physics.rectvrectcollision(Px,520,60,40,Cx2,Cy2,20,20)){
             Cy2 = 0
             Cx2 = random.randi(0,380)
             Score++
-            coinsound.play()
+            audio.playAudio("coin")
         }
         if (physics.rectvrectcollision(Px,520,60,40,Cx3,Cy3,20,20)){
             Cy3 = 0
             Cx3 = random.randi(0,380)
             Score++
-            coinsound.play()
+            audio.playAudio("coin")
         }
         if (physics.rectvrectcollision(Px,520,60,40,Bx1,By1,20,20)){
             dead = true
-            song.pause()
-            deathsound.play()
+            audio.stopAudio("song")
+            audio.playAudio("death")
         }
         if (physics.rectvrectcollision(Px,520,60,40,Bx2,By2,20,20)){
             dead = true
-            song.pause()
-            deathsound.play()
+            audio.stopAudio("song")
+            audio.playAudio("death")
         }
     }
 

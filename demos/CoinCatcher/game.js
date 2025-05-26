@@ -19,7 +19,7 @@ renderer.initRenderer("mainCanvas")
 text.addfont("pixel","assets/Micro5-Regular.ttf")
 
 // Init Input Handler
-input.initInputSystem()
+input.initInputSystem("mainCanvas")
 
 // Init Sounds
 audio.addAudio("coin","./assets/audio/coin.wav")

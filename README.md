@@ -12,4 +12,4 @@ Features Include:
 * Audio Loader and Player
 
 ### Reporting Issues
-If you need a new feature in Canvas++ feel free to report an issue with the feature request template and if there is a bug please send a bug report issue
+If you need a new feature in Canvas++ feel free to report an issue wirh a description of what the feature is you need and it will be added to the list of features to add in a later update

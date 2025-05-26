@@ -1,4 +1,4 @@
-Step 1: download the demo you want to use
+Step 1: pick a demo you want to use
 Step 2: make a folder and move the demo project files into it
-Step 3: create a folder called "canvas++" and move the modules folder into it
+Step 3: create a folder called "canvas++" and copy the modules folder into it
 Step 4: use the VS code plugin "live server" or host the code on a server to test and play the game
